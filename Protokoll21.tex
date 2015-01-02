@@ -110,6 +110,8 @@
 
 %Differential
 \newcommand{\dif}{\ensuremath{\mathrm{d}}}
+%sinc
+\newcommand{\sinc}{\ensuremath{\mathrm{sinc}}}
 
 %Boxen,etc.
 \usepackage{fancybox}
@@ -179,6 +181,29 @@ E-Mail:
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Laserprinzip}
+
+\subsection{Beugung und Interferenz}
+
+\subsubsection{Doppelspalt}
+\begin{align}
+	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon)
+\end{align}
+
+\subsubsection{Einzelspalt und Steg}
+\begin{align}
+	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)
+\end{align}
+
+\subsubsection{Kreisblende}
+\begin{align}
+	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2
+\end{align}
+
+\subsubsection{Mehrfachspalt}
+\begin{align}
+	I(\varepsilon)=I_0 \cdot \sinc^2\left(\frac{\pi\alpha D}{\lambda}\right) \cdot \left(\frac{\sin(N\varepsilon)}{\sin(\varepsilon)}\right)^2
+\end{align}
 
 \section{Durchführung}
 \label{sec:durchfuehrung}
