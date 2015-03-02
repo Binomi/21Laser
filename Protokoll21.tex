@@ -185,6 +185,7 @@ Als Lichtquelle wird diesmal ein Helium-Neon-Laser verwendet, der Intensitätsve
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Laserprinzip}
+Wie der Name \textsc{Laser}, \textit{Light Amplification by Stimulated Emission of Radiation}, schon verrät, emittiert dieser Licht aufgrund Stimulierter Emission.
 \begin{figure}[!h]
 	\centering
 	\includegraphics[scale=0.7]{NiveauHeNe.png}
@@ -193,11 +194,19 @@ Als Lichtquelle wird diesmal ein Helium-Neon-Laser verwendet, der Intensitätsve
 
 
 \subsection{Beugung und Interferenz}
+Das Fernfeld eines bestrahlten Objekts ergibt sich als Fouriertransformation des Feldes in der Objektebene.
+Dies erhält man aus der Fraunhofer-Näherung des Fresnel-Kirchhoffschen Beugungsintegrals
+\begin{align}
+	E(x',y',z)=B(x,y)\cdot \int E(x,y,0)~ e^{-ik_xx} ~ e^{-ik_yy} ~\dif x~ \dif y \,.
+	\label{eq:Fraunhofer}
+\end{align}
 
 \subsubsection{Doppelspalt}
+Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon)
+	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \,.
 \end{align}
+Dabei ist $\varepsilon= \frac{\pi d \sin \alpha}{\lambda}$.
 
 \subsubsection{Einzelspalt und Steg}
 \begin{align}
