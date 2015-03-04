@@ -155,7 +155,7 @@ E-Mail:
 	&  felix.kurtz@stud.uni-goettingen.de\\
 	& m.lohmann@stud.uni-goettingen.de\\
 
- Betreuer: & \\
+ Betreuer: & Phillip Bastian\\
  Versuchsdatum: &  09.03.2015\\
 \end{tabular}
 \end{Large}
@@ -186,41 +186,81 @@ Als Lichtquelle wird diesmal ein Helium-Neon-Laser verwendet, der Intensitätsve
 \label{sec:theorie}
 \subsection{Laserprinzip}
 Wie der Name \textsc{Laser}, \textit{Light Amplification by Stimulated Emission of Radiation}, schon verrät, emittiert dieser Licht aufgrund Stimulierter Emission.
+
+\emph{Besetzungsinversion}
+Resonator
+HeNe
+
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.7]{NiveauHeNe.png}
+	\includegraphics[scale=0.6]{NiveauHeNe.png}
 	\caption{Niveauschema des Helium-Neon-Lasers. \cite[Datum: 02.01.15]{LP21}}
 \end{figure}
 
 
 \subsection{Beugung und Interferenz}
-Das Fernfeld eines bestrahlten Objekts ergibt sich als Fouriertransformation des Feldes in der Objektebene.
-Dies erhält man aus der Fraunhofer-Näherung des Fresnel-Kirchhoffschen Beugungsintegrals
+
+\subsubsection{Vom Kirchhoffschen Beugungsintegral zur Fraunhofer-Näherung}
+Um das Feld eines bestrahlten Objektes in einer Ebene dahinter zu berechnen, integriert man über alle \emph{Elementarwellen} der Apertur:
 \begin{align}
-	E(x',y',z)=B(x,y)\cdot \int E(x,y,0)~ e^{-ik_xx} ~ e^{-ik_yy} ~\dif x~ \dif y \,.
-	\label{eq:Fraunhofer}
+	E(x',y',z)=\frac{1}{i \lambda} \int \limits _{Apertur} E(x,y,0) ~ \frac{e^{ikr}}{r}~\dif x ~\dif y \quad \text{mit} ~ r^2=(x'-x)^2+(y'-y)^2+z^2 \,.
+	\label{eq:Beugungsintegral}
+\end{align}
+Dies ist das \emph{Fresnel-Kirchhoffschen Beugungsintegral}.\\
+
+Die \emph{Fresnel-Näherung} setzt voraus, dass die Bildebene weit entfernt von der Aperturebene ist, also $z \gg x'-x,~y'-y~$.
+Dann vereinfacht sich der obige Ausdruck zu
+\begin{align}
+	E(x',y',z)=\frac{e^{ikz}}{i \lambda z} \int \limits _{Apertur} E(x,y,0) ~ \exp\left(\frac{ik}{2z}\left((x'-x)^2+(y'-y)^2\right)\right) ~\dif x ~\dif y\,.
+	\label{eq:Fresnel}
+\end{align}
+
+Befindet man sich mit der Bildebene im \emph{Fernfeld}, kann man die \emph{Fraunhofer-Näherung} benutzen.
+Dabei ist die Fresnel-Zahl $F=\frac{a^2}{\lambda z}$ mit der die Apertur charakterisierenden Größe $a$ sehr viel geringer als 1.
+Also können die in x bzw. y quadratischen Terme vernachlässigt werden und man erhält
+
+\begin{align}
+	E(x',y',z)=\frac{e^{ikz} \cdot e^{i \frac{k_xx'+k_yy'}{2}}}{i \lambda z}\cdot \int \limits _{Apertur} E(x,y,0)~ e^{-ik_xx} ~ e^{-ik_yy} ~\dif x~ \dif y \,,
+	\label{eq:Fraunhofer1}
+\end{align}
+mit $k_x:= k\frac{x'}{z}$ und  $k_y:= k\frac{y'}{z}$.\\
+
+Das Fernfeld eines bestrahlten Objekts ergibt sich also als Fouriertransformation des Feldes in der Objektebene:
+\begin{align}
+	E(x',y',z)=B(x,y)\cdot \mathcal{F}\left[E(x,y,0)
+	\right](k_x,k_y) \,.
+	\label{eq:Fraunhofer2}
 \end{align}
 
 \subsubsection{Doppelspalt}
-Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer} dieser Intensitätsverlauf
+Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \,.
+	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \qquad \text{mit }\varepsilon= \frac{\pi d \sin \alpha}{\lambda}\,.
 \end{align}
-Dabei ist $\varepsilon= \frac{\pi d \sin \alpha}{\lambda}$.
+Man transformiert nämlich zwei Delta-Peaks.
 
 \subsubsection{Einzelspalt und Steg}
+Für einen Einzelspalt mit einer Spaltbreite $b$ ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)
+	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)\qquad \text{mit }\varepsilon= \frac{\pi b \sin \alpha}{\lambda}\,.
 \end{align}
+Da das Fernfeld eines unendlichen Schirmes, also die Superposition aus Einzelspalt und Steg, perfekt dunkel ist, gilt:
+$$ E_\text{Spalt} + E_\text{Steg} = 0 \,.$$
+Da man nur die Intensität, also das Quadrat des E-Feldes, misst ergibt sich als Fernfeld des Stegs der Länge $b$ die gleiche Verteilung wie bei einem Einzelspalt gleicher Spaltbreite.
 
 \subsubsection{Kreisblende}
+Für eine Kreisblende mit dem Durchmesser $D$ ergibt sich -- nach etwas komplexerer Rechnung -- nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2
+	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2 \qquad \text{mit }\varepsilon= \frac{\pi D \sin \alpha}{\lambda}\,.
 \end{align}
+Dabei ist $J_1$ die zylindrische Besselfunktion.
+Das erste Minimum von $\left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2$ liegt bei 1.22.
+Diese Zahl taucht auch beim Auflösungsvermögen bzw. Rayleigh-Kriterium auf.
 
 \subsubsection{Mehrfachspalt}
+Bei einem Mehrfachspalt, bei dem $N$ Spalte der Breite $b$ und dem Abstand $d$ beleuchtet werden, erhält man die Fernfeldverteilung aus dem Faltungssatz als Produkt aus Einzelpalteffekt und der Fouriertransformation von $N$ Delta-Peaks:
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \sinc^2\left(\frac{\pi\alpha D}{\lambda}\right) \cdot \left(\frac{\sin(N\varepsilon)}{\sin(\varepsilon)}\right)^2
+	I(\varepsilon)=I_0 \cdot \sinc^2\left(\frac{\pi\alpha b}{\lambda}\right) \cdot \left(\frac{\sin(N\varepsilon)}{\sin(\varepsilon)}\right)^2 \qquad \text{mit }\varepsilon= \frac{\pi d \sin \alpha}{\lambda}\,.
 \end{align}
 
 \section{Durchführung}
@@ -234,7 +274,7 @@ Dabei ist $\varepsilon= \frac{\pi d \sin \alpha}{\lambda}$.
 Um die Messergebnisse nicht zu verfälschen ist es immens wichtig, die Beugungsobjekte nur an der Fassung anzufassen.
 Genauso vorsichtig soll auch mit den Linsen umgegangen werden.\\
 
-Zuerst schaltet man den PC an und meldet sich unter dem Benutzer "laser" ohne Passwort an.
+Zuerst schaltet man den PC an und meldet sich unter dem Benutzer ''laser'' ohne Passwort an.
 Dann startet man das Programm \emph{Lasersteuerung} auf dem Desktop.
 Der Motor der Fotodiode bewegt sich dann auf die Nullposition.
 Nun kann der Laser mittels Schiebeschalter auf der Rückseite angeschaltet werden.\\
@@ -247,6 +287,23 @@ Um eine möglichst parallele Bestrahlung zu ermöglichen, muss der Abstand zwisc
 Außerdem soll er gemessen werden.
 Zuerst stellt man im Programm ein, von wo bis wo die Diode den Verlauf aufnehmen soll ($400~$Schritte $\corresponds 1~$mm) und welcher Spannungsbereich erfasst werden soll.
 Dabei kann man je nach Intensität zwischen $0-1~$V und $0-10~$V wählen.
+
+Die symmetrischen Spektren sollen bis zum vierten Nebenmaximum -- links wie rechts -- vom Hauptmaximum aufgenommen werden.
+Außerdem genügt es beim Gitter sowie bei der Doppellochblende, nur bis zum ersten Nebenmaximum des Einzelspalteffektes bzw. der Blendenfunktion zu messen, da die Intensität danach zu gering ist.
+Außerdem sollen alle Extrema deutlich bestimmt werden.
+Dazu ist es wichtig den richtigen Messbereich auszuwählen, da am Rand die Maxima sehr schwach sind.
+Also werden zwei Messungen durchgeführt: einmal das Zentrum und danach die Randgebiete.
+In welchem Messbereich man sich befindet, kann man an der Anzeige der aktuellen Fotospannung ablesen.\\
+
+Die Fotodiode wird mit der  manuellen Steuerung im oberen Teil des Programmfensters zuerst an die beiden Ränder der bevorstehenden Messung gefahren, die Positionswerte werden notiert und dann als Grenzen der Messung eingeben.
+Nun muss noch die Schrittweite eingegeben werden.
+Sie sollte unter 50 Schritten, also einem Achtel Millimeter liegen.
+Im Fenster unten links wird dann der automatische Messvorgang gestartet.
+Das Spektrum wird abgespeichert und mit einem Plotprogramm dargestellt, beschriftet und schließlich ausgedruckt.
+Dies dient als Messprotokoll.
+Neben dem Beugungsobjekt und den Achsen mit Einheiten sollen noch der Konversionsfaktor in Schritten/mm, der Objektabstand von der Diode sowie die Wellenlänge des Lasers als auch die charakteristische Größe des Objekts enthalten.\\
+
+Schließlich werden alle Daten auf einem USB-Stick gepeichert.
 
 \section{Auswertung}
 \label{sec:auswertung}
