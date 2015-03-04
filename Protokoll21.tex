@@ -188,35 +188,68 @@ Als Lichtquelle wird diesmal ein Helium-Neon-Laser verwendet, der Intensitätsve
 Wie der Name \textsc{Laser}, \textit{Light Amplification by Stimulated Emission of Radiation}, schon verrät, emittiert dieser Licht aufgrund Stimulierter Emission.
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.7]{NiveauHeNe.png}
+	\includegraphics[scale=0.6]{NiveauHeNe.png}
 	\caption{Niveauschema des Helium-Neon-Lasers. \cite[Datum: 02.01.15]{LP21}}
 \end{figure}
 
 
 \subsection{Beugung und Interferenz}
-Das Fernfeld eines bestrahlten Objekts ergibt sich als Fouriertransformation des Feldes in der Objektebene.
-Dies erhält man aus der Fraunhofer-Näherung des Fresnel-Kirchhoffschen Beugungsintegrals
+
+\subsubsection{Vom Kirchhoffschen Beugungsintegral zur Fraunhofer-Näherung}
+Um das Feld eines bestrahlten Objektes in einer Ebene dahinter zu berechnen, integriert man über alle \emph{Elementarwellen} der Apertur:
 \begin{align}
-	E(x',y',z)=B(x,y)\cdot \int E(x,y,0)~ e^{-ik_xx} ~ e^{-ik_yy} ~\dif x~ \dif y \,.
-	\label{eq:Fraunhofer}
+	E(x',y',z)=\frac{1}{i \lambda} \int \limits _{Apertur} E(x,y,0) ~ \frac{e^{ikr}}{r}~\dif x ~\dif y \quad \text{mit} ~ r^2=(x'-x)^2+(y'-y)^2+z^2 \,.
+	\label{eq:Beugungsintegral}
+\end{align}
+Dies ist das \emph{Fresnel-Kirchhoffschen Beugungsintegral}.\\
+
+Die \emph{Fresnel-Näherung} setzt voraus, dass die Bildebene weit entfernt von der Aperturebene ist, also $z \gg x'-x,~y'-y~$.
+Dann vereinfacht sich der obige Ausdruck zu
+\begin{align}
+	E(x',y',z)=\frac{e^{ikz}}{i \lambda z} \int \limits _{Apertur} E(x,y,0) ~ \exp\left(\frac{ik}{2z}\left((x'-x)^2+(y'-y)^2\right)\right) ~\dif x ~\dif y\,.
+	\label{eq:Fresnel}
+\end{align}
+
+Befindet man sich mit der Bildebene im \emph{Fernfeld}, kann man die \emph{Fraunhofer-Näherung} benutzen.
+Dabei ist die Fresnel-Zahl $F=\frac{a^2}{\lambda z}$ mit der die Apertur charakterisierenden Größe $a$ sehr viel geringer als 1.
+Also können die in x bzw. y quadratischen Terme vernachlässigt werden und man erhält
+
+\begin{align}
+	E(x',y',z)=\frac{e^{ikz} \cdot e^{i \frac{k_xx'+k_yy'}{2}}}{i \lambda z}\cdot \int \limits _{Apertur} E(x,y,0)~ e^{-ik_xx} ~ e^{-ik_yy} ~\dif x~ \dif y \,,
+	\label{eq:Fraunhofer1}
+\end{align}
+mit $k_x:= k\frac{x'}{z}$ und  $k_y:= k\frac{y'}{z}$.\\
+
+Das Fernfeld eines bestrahlten Objekts ergibt sich also als Fouriertransformation des Feldes in der Objektebene:
+\begin{align}
+	E(x',y',z)=B(x,y)\cdot \mathcal{F}\left[E(x,y,0)
+	\right](k_x,k_y) \,.
+	\label{eq:Fraunhofer2}
 \end{align}
 
 \subsubsection{Doppelspalt}
-Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer} dieser Intensitätsverlauf
+Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \,.
+	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \qquad \text{mit }\varepsilon= \frac{\pi d \sin \alpha}{\lambda}\,.
 \end{align}
-Dabei ist $\varepsilon= \frac{\pi d \sin \alpha}{\lambda}$.
+Man transformiert nämlich zwei Delta-Peaks.
 
 \subsubsection{Einzelspalt und Steg}
+Für einen Einzelspalt mit einer Spaltbreite $b$ ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)
+	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)\qquad \text{mit }\varepsilon= \frac{\pi b \sin \alpha}{\lambda}\,.
 \end{align}
+Da das Fernfeld eines unendlichen Schirmes, also die Superposition aus Einzelspalt und Steg, perfekt dunkel ist, gilt:
+$$ E_\text{Spalt} + E_\text{Steg} = 0 \,.$$
+Da man nur die Intensität, also das Quadrat des E-Feldes, misst ergibt sich als Fernfeld des Stegs der Länge $b$ die gleiche Verteilung wie bei einem Einzelspalt gleicher Spaltbreite.
 
 \subsubsection{Kreisblende}
+Für eine Kreisblende mit dem Durchmesser $D$ ergibt sich -- nach etwas komplexerer Rechnung -- nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
-	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2
+	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2 \qquad \text{mit }\varepsilon= \frac{\pi D \sin \alpha}{\lambda}\,.
 \end{align}
+Dabei ist $J_1$ die zylindrische Besselfunktion.
+Das erste Minimum von $\left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2$ liegt bei 1.22.
 
 \subsubsection{Mehrfachspalt}
 \begin{align}
