@@ -155,7 +155,7 @@ E-Mail:
 	&  felix.kurtz@stud.uni-goettingen.de\\
 	& m.lohmann@stud.uni-goettingen.de\\
 
- Betreuer: & \\
+ Betreuer: & Phillip Bastian\\
  Versuchsdatum: &  09.03.2015\\
 \end{tabular}
 \end{Large}
@@ -234,7 +234,7 @@ Dabei ist $\varepsilon= \frac{\pi d \sin \alpha}{\lambda}$.
 Um die Messergebnisse nicht zu verfälschen ist es immens wichtig, die Beugungsobjekte nur an der Fassung anzufassen.
 Genauso vorsichtig soll auch mit den Linsen umgegangen werden.\\
 
-Zuerst schaltet man den PC an und meldet sich unter dem Benutzer "laser" ohne Passwort an.
+Zuerst schaltet man den PC an und meldet sich unter dem Benutzer ''laser'' ohne Passwort an.
 Dann startet man das Programm \emph{Lasersteuerung} auf dem Desktop.
 Der Motor der Fotodiode bewegt sich dann auf die Nullposition.
 Nun kann der Laser mittels Schiebeschalter auf der Rückseite angeschaltet werden.\\
@@ -247,6 +247,23 @@ Um eine möglichst parallele Bestrahlung zu ermöglichen, muss der Abstand zwisc
 Außerdem soll er gemessen werden.
 Zuerst stellt man im Programm ein, von wo bis wo die Diode den Verlauf aufnehmen soll ($400~$Schritte $\corresponds 1~$mm) und welcher Spannungsbereich erfasst werden soll.
 Dabei kann man je nach Intensität zwischen $0-1~$V und $0-10~$V wählen.
+
+Die symmetrischen Spektren sollen bis zum vierten Nebenmaximum -- links wie rechts -- vom Hauptmaximum aufgenommen werden.
+Außerdem genügt es beim Gitter sowie bei der Doppellochblende, nur bis zum ersten Nebenmaximum des Einzelspalteffektes bzw. der Blendenfunktion zu messen, da die Intensität danach zu gering ist.
+Außerdem sollen alle Extrema deutlich bestimmt werden.
+Dazu ist es wichtig den richtigen Messbereich auszuwählen, da am Rand die Maxima sehr schwach sind.
+Also werden zwei Messungen durchgeführt: einmal das Zentrum und danach die Randgebiete.
+In welchem Messbereich man sich befindet, kann man an der Anzeige der aktuellen Fotospannung ablesen.\\
+
+Die Fotodiode wird mit der  manuellen Steuerung im oberen Teil des Programmfensters zuerst an die beiden Ränder der bevorstehenden Messung gefahren, die Positionswerte werden notiert und dann als Grenzen der Messung eingeben.
+Nun muss noch die Schrittweite eingegeben werden.
+Sie sollte unter 50 Schritten, also einem Achtel Millimeter liegen.
+Im Fenster unten links wird dann der automatische Messvorgang gestartet.
+Das Spektrum wird abgespeichert und mit einem Plotprogramm dargestellt, beschriftet und schließlich ausgedruckt.
+Dies dient als Messprotokoll.
+Neben dem Beugungsobjekt und den Achsen mit Einheiten sollen noch der Konversionsfaktor in Schritten/mm, der Objektabstand von der Diode sowie die Wellenlänge des Lasers als auch die charakteristische Größe des Objekts enthalten.\\
+
+Schließlich werden alle Daten auf einem USB-Stick gepeichert.
 
 \section{Auswertung}
 \label{sec:auswertung}
