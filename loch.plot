@@ -1,14 +1,14 @@
 reset
 set terminal epslatex color
-set output 'Messung.tex'
+set output 'loch.tex'
 set xlabel 'Position [mm]'
 set ylabel 'Spannung [V]'
 set key top right
 
 #set xrange[0:70]
 
-p 'messung.dat' t'Messwerte'
+p 'loch(3x,0-1V).dat' u 1:($2/10) t'Messwerte'
 
 set output
-!epstopdf messung.eps
-!rm messung.eps
+!epstopdf loch.eps
+!rm loch.eps
