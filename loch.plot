@@ -7,7 +7,7 @@ set key top right
 
 #set xrange[0:70]
 
-p 'loch(3x,0-1V).dat' u 1:($2/10) t'Messwerte'
+p 'loch(3x,0-1V).dat' u ($1/400):($2/10) t'Messwerte'
 
 set output
 !epstopdf loch.eps

@@ -7,7 +7,7 @@ set key top right
 
 #set xrange[0:70]
 
-p 'doppelloch_mittlerer_Abstand.dat' t'Messwerte'
+p 'doppelloch_mittlerer_Abstand.dat' u ($1/400):2 t'Messwerte'
 
 set output
 !epstopdf doppelloch2.eps

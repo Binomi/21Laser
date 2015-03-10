@@ -7,9 +7,9 @@ set key top right
 
 #set xrange[0:70]
 
-p 'gitter_mitte(1x,0-10V).dat' t'Messwerte',\
-'gitter_neben_links(3x,0-1V).dat' u 1:($2/10) t'Messwerte',\
-'gitter_neben_rechts(3x,0-1V).dat' u 1:($2/10) t'Messwerte'
+p 'gitter_mitte(1x,0-10V).dat' u ($1/400):2 t'Messwerte',\
+'gitter_neben_links(3x,0-1V).dat' u ($1/400):($2/13) t'Messwerte',\
+'gitter_neben_rechts(3x,0-1V).dat' u ($1/400):($2/13) t'Messwerte'
 
 set output
 !epstopdf gitter.eps
