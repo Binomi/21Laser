@@ -1,10 +1,10 @@
 
 
 *******************************************************************************
-Tue Mar 10 21:21:06 2015
+Tue Mar 10 23:53:37 2015
 
 
-FIT:    data read from 'loch.csv' u 4:($3/a):(b)
+FIT:    data read from 'loch.csv' u 1:($3/a):(c)
         #datapoints = 14
 function used for fitting: f(x)
 fitted parameters initialized with current variable values
@@ -12,32 +12,32 @@ fitted parameters initialized with current variable values
 
 
  Iteration 0
- WSSR        : 14                delta(WSSR)/WSSR   : 0
+ WSSR        : 10435.3           delta(WSSR)/WSSR   : 0
  delta(WSSR) : 0                 limit for stopping : 1e-005
- lambda	  : 0.00040993
+ lambda	  : 9.23695
 
 initial set of free parameter values
 
-m               = 0.00131012
-b               = 4900
+m               = 1.31012
+b               = -0.028819
 
-After 5 iterations the fit converged.
-final sum of squares of residuals : 2.17292e-015
-rel. change during last iteration : -2.08023e-013
+After 3 iterations the fit converged.
+final sum of squares of residuals : 22.83
+rel. change during last iteration : -1.91118e-007
 
 degrees of freedom    (FIT_NDF)                        : 12
-rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.34565e-008
-variance of residuals (reduced chisquare) = WSSR/ndf   : 1.81077e-016
+rms of residuals      (FIT_STDFIT) = sqrt(WSSR/ndf)    : 1.37931
+variance of residuals (reduced chisquare) = WSSR/ndf   : 1.9025
 
 Final set of parameters            Asymptotic Standard Error
 =======================            ==========================
 
-m               = 0.00331187       +/- 6.671e-006   (0.2014%)
-b               = -1.78611e-005    +/- 1.774e-005   (99.31%)
+m               = 3.56244          +/- 0.03065      (0.8603%)
+b               = -0.032418        +/- 0.07574      (233.6%)
 
 
 correlation matrix of the fit parameters:
 
                m      b      
 m               1.000 
-b              -0.114  1.000 
+b              -0.116  1.000 
