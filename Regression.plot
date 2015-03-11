@@ -41,11 +41,11 @@ c=1/(4*1.225)
 
 
 f(x)=m*x+b
-fit f(x) 'loch.csv' u 1:($3/a):(c) via m,b
+fit f(x) 'loch.csv' u 4:($3/a):(c) via m,b
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -3,10
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -3,7
 
-p 'loch.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
+p 'loch.csv' u 4:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
 
 set output
