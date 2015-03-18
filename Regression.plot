@@ -14,8 +14,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'gitter.csv' u 1:($3/a):(c) via m,b
+stats 'gitter.csv' u 1:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -4.5,2
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -4.5,1
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -4.5,0
 
 p 'gitter.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
@@ -42,8 +45,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'loch.csv' u 4:($3/a):(c) via m,b
+stats 'loch.csv' u 4:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -3,10
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -3,7
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -3,4
 
 p 'loch.csv' u 4:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
@@ -70,8 +76,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'doppelloch1.csv' u 1:($3/a):(c) via m,b
+stats 'doppelloch1.csv' u 1:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -1.5,2
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -1.5,1.4
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -1.5,0.8
 
 p 'doppelloch1.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
@@ -98,8 +107,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'doppelloch2.csv' u 1:($3/a):(c) via m,b
+stats 'doppelloch2.csv' u 1:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -2,3
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -2,2.4
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -2,1.8
 
 p 'doppelloch2.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
@@ -126,8 +138,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'spalt.csv' u 1:($3/a):(c) via m,b
+stats 'spalt.csv' u 1:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -3,10
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -3,7
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -3,4
 
 p 'spalt.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
@@ -153,8 +168,11 @@ c=1/(4*1.225)
 
 f(x)=m*x+b
 fit f(x) 'steg.csv' u 1:($3/a):(c) via m,b
+stats 'steg.csv' u 1:($3/a)
+
 set label 1 sprintf("$m = (%3.4f \\pm %3.4f)~10^{-3}$",m,m_err) at -3,10
 set label 2 sprintf("$b = (%3.4f \\pm %3.4f)~10^{-3}$",b,b_err) at -3,7
+set label 3 sprintf("$r = %3.5f $",STATS_correlation) at -3,4
 
 p 'steg.csv' u 1:($3/a):(c) w e t'Extrema', f(x) lt -1 t'$\alpha=m \cdot \frac{\varepsilon}{\pi}+b $'
 
