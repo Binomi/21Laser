@@ -274,8 +274,7 @@ Bei einem Mehrfachspalt, bei dem $N$ Spalte der Breite $b$ und dem Abstand $d$ b
 Um die Messergebnisse nicht zu verfälschen ist es immens wichtig, die Beugungsobjekte nur an der Fassung anzufassen.
 Genauso vorsichtig soll auch mit den Linsen umgegangen werden.\\
 
-Zuerst schaltet man den PC an und meldet sich unter dem Benutzer ''laser'' ohne Passwort an.
-Dann startet man das Programm \emph{Lasersteuerung} auf dem Desktop.
+Zuerst schaltet man den PC an und startet das Programm \emph{Lasersteuerung} auf dem Desktop.
 Der Motor der Fotodiode bewegt sich dann auf die Nullposition.
 Nun kann der Laser mittels Schiebeschalter auf der Rückseite angeschaltet werden.\\
 
@@ -299,7 +298,7 @@ Die Fotodiode wird mit der  manuellen Steuerung im oberen Teil des Programmfenst
 Nun muss noch die Schrittweite eingegeben werden.
 Sie sollte unter 50 Schritten, also einem Achtel Millimeter liegen.
 Im Fenster unten links wird dann der automatische Messvorgang gestartet.
-Das Spektrum wird abgespeichert und mit einem Plotprogramm dargestellt, beschriftet und schließlich ausgedruckt.
+Das Spektrum wird abgespeichert und mit einem Plotprogramm dargestellt, beschriftet und schließlich ausgeund meldet sich unter dem Benutzer ''laser'' ohne Passwort andruckt.
 Dies dient als Messprotokoll.
 Neben dem Beugungsobjekt und den Achsen mit Einheiten sollen noch der Konversionsfaktor in Schritten/mm, der Objektabstand von der Diode sowie die Wellenlänge des Lasers als auch die charakteristische Größe des Objekts enthalten.\\
 
@@ -308,46 +307,12 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 \section{Auswertung}
 \label{sec:auswertung}
 \subsection{Objektgrößen bestimmen}
+
 \begin{align}
-	D&=\frac{\frac{\varepsilon}{\pi}}{\alpha}\lambda=\frac{\lambda}{m}\,,\\
+	D&=\frac{\frac{\varepsilon}{\pi}}{\alpha}\lambda=\frac{\lambda}{m}\,,
+	\label{eq:objekt}\\
 	\sigma_D&=\frac{\lambda}{m^2}\cdot \sigma_m\,.
 \end{align}
-
-\begin{figure}[!htb]
-	\centering
-	\input{spalt_reg.tex}
-	\caption{Spalt}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\input{steg_reg.tex}
-	\caption{Steg}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\input{loch_reg.tex}
-	\caption{Lochblende}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\input{doppelloch1_reg.tex}
-	\caption{Doppelloch-Blende mit kleinstem Lochabstand}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\input{doppelloch2_reg.tex}
-	\caption{Doppelloch-Blende mit mittlerem Lochabstand}
-\end{figure}
-
-\begin{figure}[!htb]
-	\centering
-	\input{gitter_reg.tex}
-	\caption{Gitter}
-\end{figure}
 
 \begin{table}[!htb]
 	\centering
@@ -371,13 +336,64 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 		& $B$ & $194 \pm 25$ & 175 & $11\%$ & 210 & $14\%$ \\
 		\hline
 	\end{tabular}
+	\caption{Aus den Geradensteigungen berechnete Objektgrößen verglichen mit den tatsächlichen Werten}
+	\label{tab:objektgroeßen}
 \end{table}
 
+\begin{figure}[!htb]
+	\centering
+	\input{spalt_reg.tex}
+	\caption{Spalt}
+	\label{fig:spalt_reg}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\input{steg_reg.tex}
+	\caption{Steg}
+	\label{fig:steg_reg}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\input{loch_reg.tex}
+	\caption{Lochblende}
+	\label{fig:loch_reg}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\input{doppelloch1_reg.tex}
+	\caption{Doppelloch-Blende mit kleinstem Lochabstand}
+	\label{fig:doppelloch1_reg}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\input{doppelloch2_reg.tex}
+	\caption{Doppelloch-Blende mit mittlerem Lochabstand}
+	\label{fig:doppelloch2_reg}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\input{gitter_reg.tex}
+	\caption{Gitter}
+	\label{fig:gitter_reg}
+\end{figure}
+
 \subsection{Wellenlänge des Lasers bestimmen}
+Stellt man \eqref{eq:objekt} nach der Wellenlänge $\lambda$ um, erhält man folgende Formel und ihre Fehlerabschätzung:
 \begin{align}
 	\lambda&=mD\,,\\
 	\sigma_\lambda&=D\cdot\sigma_m\,.
 \end{align}
+Den besten Korrelationskoeffizienten wies die \textbf{Lochblenden-Messung} mit $r=0.99998$ auf.
+Setzt man einen Durchmesser $D=200\,\mu$m der Lochblende voraus und verwendet die in Abbildung \ref{fig:loch_reg} gefittete Geradensteigung $m$ ergibt sich folgende Wellenlänge des HeNe-Lasers:
+\begin{empheq}[box=\shadowbox]{align*}
+	\lambda=(662.4\pm 1.4)\,\si{\nano\meter}\,.
+\end{empheq}
+Dieser Wert ist etwa $5\%$ größer als der Literaturwert $\lambda=632.8\,$nm.
 
 
 \section{Diskussion}
@@ -490,6 +506,8 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 		&	4.2411	&	66.250	&	17.050	&	3.480	\\
 		\hline
 	\end{tabular}
+	\caption{Spalt, Steg und Lochblende: Extrema absolut und relativ sowie zugehöriger Winkel}
+	\label{tab:extrema1}
 \end{table}
 
 \begin{table}[!htb]
@@ -543,6 +561,8 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 		&	2.5	&	53.825	&	4.575	&	0.934	\\
 		\hline
 	\end{tabular}
+	\caption{Doppellochblenden und Gitter: Extrema absolut und relativ sowie zugehöriger Winkel}	
+	\label{tab:extrema2}
 \end{table}
 
 \bibliography{literatur}
