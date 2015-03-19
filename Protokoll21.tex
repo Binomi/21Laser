@@ -307,19 +307,45 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 \section{Auswertung}
 \label{sec:auswertung}
 \subsection{Objektgrößen bestimmen}
+Die Abbildungen \ref{fig:spalt}-\ref{fig:gitter} zeigen die Messdaten aller Objekte.
+Daran sind im folgenden nur die Extrema interessant.
 
+Alle erkennbaren Extrema (absolute und relative Position sowie Winkel $\alpha$) mit zugehörigem $\frac{\varepsilon}{\pi}$ sind in Tabelle \ref{tab:extrema1} und \ref{tab:extrema2} zu finden.
+Dabei wird der Winkel mithilfe der Kleinwinkelnäherung berechnet: $\alpha\approx\sin\alpha=\arctan\frac{x}{l}\approx\frac{x}{l}$.
+Hier bezeichnet $x$ die relative Position zum 0. Hauptmaximum und $l$ den Abstand zwischen Beugungsobjekt und Schirm.
+Er beträgt $l=1.225\,$m.
+Die Extremapositionen wurden durch genaue Analyse der Messdaten (Augenmaß) bestimmt.
+Dabei nehmen wir eine Ungenauigkeit von $0.25\,$mm an.
+Dies entspricht einer Winkelungenauigkeit von $\sigma_\alpha=0.2\cdot 10^{-3}\,$rad.
+Der Wert für $\frac{\varepsilon}{\pi}$ kann aus den theoretischen Intensitätsverläufen berechnet werden, indem man die Extrema von $I(\varepsilon)$ untersucht.
+
+In den Abbildungen \ref{fig:spalt_reg}-\ref{fig:gitter_reg} sind die Winkel $\alpha_i$ gegen den zugehörigen Wert $\frac{\varepsilon_i}{\pi}$ für die verschiedenen Objekte aufgetragen.
+In allen Fällen ergibt sich eine Gerade.
+Aus deren Steigung kann man nun die Objektgröße berechnen:
 \begin{align}
 	D&=\frac{\frac{\varepsilon}{\pi}}{\alpha}\lambda=\frac{\lambda}{m}\,,
 	\label{eq:objekt}\\
 	\sigma_D&=\frac{\lambda}{m^2}\cdot \sigma_m\,.
 \end{align}
 
+Zur Bestimmung der kleinsten Objektstruktur, also des Lochdurchmessers der Doppellochblenden und der Spaltbreite des Gitters, konnten nur die ersten Nullstellen der Einhüllenden genutzt werden.
+Deshalb wird der Fehler auch doppelt so groß wie zuvor angenommen: $\sigma_x=0.5\,$mm.
+Es ergaben sich folgende relative Positionen für die Nullstellen der Einhüllenden: Doppeloch (nah) $\pm 5\,$mm, Doppelloch (fern) $\pm 4.75\,$mm , Gitter $\pm 4\,$mm.
+Wie oben auch kann man den Lochdurchmesser und die Spaltbreite berechnen.
+
+Alle so berechneten Werte finden sich in Tabelle \ref{tab:objektgroessen} wieder.
+Dabei bezeichnet $B$ die Spalt-/Stegbreite sowie den Lochabstand der Doppellochblenden, $D$ den Lochdurchmesser und $a$ den Spaltabstand.
+Die berechneten Werte werden mit den Werten aus \cite[S.196]{prakti} verglichen.
+Unser Versuchsaufbau war der an der Wand.
+Zusätzlich vergleichen wir sie noch mit den am nächsten liegenden Werten aller drei Versuchsaufbauten.
+Bei Objekten mit zwei zu bestimmenden Größen ist immer die größere für den zweiten Vergleich ausschlaggebend.
+
 \begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c|c||c||c|c||c|c|}
 		\hline
 		 & & & tatsächliche &  & beste &  \\
-		Objekt & Angabe & Größe [$\mu$m] & Größe [$\mu$m] & Abweichung & Größe [$\mu$m] & Abweichung \\
+		Objekt & Angabe & Größe [$\mu$m] & Größe [$\mu$m] & Abw. & Größe [$\mu$m] & Abw. \\
 		\hline
 		\hline
 		Spalt & $B$ & $216.1 \pm 0.8$ & 250 & $14\%$ & 225 & $4\%$ \\
@@ -337,7 +363,7 @@ Schließlich werden alle Daten auf einem USB-Stick gespeichert.
 		\hline
 	\end{tabular}
 	\caption{Aus den Geradensteigungen berechnete Objektgrößen verglichen mit den tatsächlichen Werten}
-	\label{tab:objektgroeßen}
+	\label{tab:objektgroessen}
 \end{table}
 
 \begin{figure}[!htb]
@@ -398,6 +424,23 @@ Dieser Wert ist etwa $5\%$ größer als der Literaturwert $\lambda=632.8\,$nm.
 
 \section{Diskussion}
 \label{sec:diskussion}
+\subsection{Objektgrößen}
+
+Somit nehmen wir an, dass die Sets der Beugungsobjekte vom mittleren Versuchsaufbau sich bei uns an der Wand befanden und umgekehrt.
+Man sollte nochmal nachmessen und alle Praktikanten darauf hinweisen, dass die drei Versuchsaufbauten nicht die gleichen Objektgrößen benutzen und man die Objekte nicht vertauschen sollte.
+Zusätzlich könnte man sie markieren.
+Dies alles lässt eine bessere Vergleichbarkeit der Messwerte mit den angegebenen Werten zu.
+
+\subsection{Wellenlänge}
+Die Wellenlänge des Lasers ist $5\%$ kleiner als berechnet und liegt auch nicht im Fehlerintervall.
+Da aber die Werte in Abb.\ref{fig:loch_reg} einen hohen Korrelationskoeffizienten aufweisen, kann der Fehler nur bei der Größe der Lochblende gesucht werden.
+Laut der Tabelle auf Seite 196 aus \cite{prakti} ist sie jedoch für alle Objekte gleich groß.
+Sie kann also auch nicht aus einem anderen Versuchsaufbau stammen.
+Es könnte sich aber Schmutz abgelagert haben, sodass der Durchmesser geringer ist als angenommen.
+Dann wird die berechnete Laserwellenlänge geringer.
+Man sollte den Durchmesser also nochmal nachmessen.
+Außerdem hätte man für ihn einen Fehler annehmen sollen.
+Da wir allerdings nicht wissen, wie und vor allem wie genau die Bestimmung des Durchmessers verlief, können wir keinen vernünftig begründbaren Fehler angeben.
 
 \section{Anhang}
 \subsection{Messwerte}
@@ -405,6 +448,7 @@ Dieser Wert ist etwa $5\%$ größer als der Literaturwert $\lambda=632.8\,$nm.
 	\centering
 	\input{spalt.tex}
 	\caption{Einzelspalt}
+	\label{fig:spalt}
 \end{figure}
 
 \begin{figure}[!htb]
@@ -447,6 +491,7 @@ Dieser Wert ist etwa $5\%$ größer als der Literaturwert $\lambda=632.8\,$nm.
 	\centering
 	\input{gitter.tex}
 	\caption{Gitter}
+	\label{fig:gitter}
 \end{figure}
 
 \subsection{Extrema Tabelle}
