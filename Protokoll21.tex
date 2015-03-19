@@ -185,30 +185,38 @@ Als Lichtquelle wird diesmal ein Helium-Neon-Laser verwendet, der Intensitätsve
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Laserprinzip}
-Wie der Name \textsc{Laser}, \textit{Light Amplification by Stimulated Emission of Radiation}, schon verrät, emittiert dieser Licht aufgrund Stimulierter Emission.
-
-\emph{Besetzungsinversion}
-Resonator
-HeNe
+Wie der Name \textsc{Laser}, \textit{Light Amplification by Stimulated Emission of Radiation}, schon verrät, emittiert dieser Licht aufgrund Stimulierter Emission und nicht spontan wie thermische Lichtquellen.
+Dabei trifft ein Photon auf ein angeregtes Atom und es entsteht noch ein Photon, welches ununterscheidbar vom ersten ist.
+Das Atom befindet sich danach in einem energieärmeren Niveau.
+Für diesen Prozess benötigt man zuerst eine \emph{Besetzungsinversion} der Niveaus.
+So müssen sich mehr Atome in einem höheren Energieniveau, dem oberen Laserniveau, befinden als im unteren Laserniveau.
+Um eine hohe Verstärkung zu erreichen, wird meist ein \emph{Resonator} verwendet.
+Dieser besteht aus einem Spiegel und einem teildurchlässigen Reflektor, dessen Transmitivität jedoch gering ist.\\
+Der in diesem Versuch verwendete Laser ist ein Helium-Neon-Laser.
+Er besteht aus 5/6 Helium und 1/6 Neon.
+Wie in Abbildung \ref{fig:HeNe} zu sehen, werden die Heliumatome durch Elektronenstöße angeregt und geben dann ihre Energie durch Stöße an die Neonatome ab.
+Dann gibt Neon Energie durch stimulierte Emission ab, meist bei $\lambda=632.8\,$nm.
+Das Neonatom befindet sich nach mehreren Prozessen wieder im Grundniveau und das Ganze beginnt von vorne.
 
 \begin{figure}[!h]
 	\centering
-	\includegraphics[scale=0.6]{NiveauHeNe.png}
+	\includegraphics[scale=0.5]{NiveauHeNe.png}
 	\caption{Niveauschema des Helium-Neon-Lasers. \cite[Datum: 02.01.15]{LP21}}
+	\label{fig:HeNe}
 \end{figure}
 
 
 \subsection{Beugung und Interferenz}
 
 \subsubsection{Vom Kirchhoffschen Beugungsintegral zur Fraunhofer-Näherung}
-Um das Feld eines bestrahlten Objektes in einer Ebene dahinter zu berechnen, integriert man über alle \emph{Elementarwellen} der Apertur:
+Um das Feld eines bestrahlten Objektes in einer Ebene dahinter zu berechnen, integriert man über alle \emph{Elementarwellen} der Apertur \cite[S.67]{optik}:
 \begin{align}
 	E(x',y',z)=\frac{1}{i \lambda} \int \limits _{Apertur} E(x,y,0) ~ \frac{e^{ikr}}{r}~\dif x ~\dif y \quad \text{mit} ~ r^2=(x'-x)^2+(y'-y)^2+z^2 \,.
 	\label{eq:Beugungsintegral}
 \end{align}
 Dies ist das \emph{Fresnel-Kirchhoffschen Beugungsintegral}.\\
 
-Die \emph{Fresnel-Näherung} setzt voraus, dass die Bildebene weit entfernt von der Aperturebene ist, also $z \gg x'-x,~y'-y~$.
+Die \emph{Fresnel-Näherung} setzt voraus, dass die Bildebene weit entfernt von der Aperturebene ist, also $z \gg x'-x,~y'-y~$ \cite[S.68]{optik}.
 Dann vereinfacht sich der obige Ausdruck zu
 \begin{align}
 	E(x',y',z)=\frac{e^{ikz}}{i \lambda z} \int \limits _{Apertur} E(x,y,0) ~ \exp\left(\frac{ik}{2z}\left((x'-x)^2+(y'-y)^2\right)\right) ~\dif x ~\dif y\,.
@@ -216,7 +224,7 @@ Dann vereinfacht sich der obige Ausdruck zu
 \end{align}
 
 Befindet man sich mit der Bildebene im \emph{Fernfeld}, kann man die \emph{Fraunhofer-Näherung} benutzen.
-Dabei ist die Fresnel-Zahl $F=\frac{a^2}{\lambda z}$ mit der die Apertur charakterisierenden Größe $a$ sehr viel geringer als 1.
+Dabei ist die Fresnel-Zahl $F=\frac{a^2}{\lambda z}$ mit der die Apertur charakterisierenden Größe $a$ sehr viel geringer als 1 \cite[S.68f.]{optik}.
 Also können die in x bzw. y quadratischen Terme vernachlässigt werden und man erhält
 
 \begin{align}
@@ -233,14 +241,14 @@ Das Fernfeld eines bestrahlten Objekts ergibt sich also als Fouriertransformatio
 \end{align}
 
 \subsubsection{Doppelspalt}
-Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
+Für einen Doppelspalt mit einem Spaltabstand $d$ und infinitesimaler Spaltbreite ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf (vgl. \cite[S.457ff.]{hecht})
 \begin{align}
 	I(\varepsilon)=I_0 \cdot \cos^2(\varepsilon) \qquad \text{mit }\varepsilon= \frac{\pi d \sin \alpha}{\lambda}\,.
 \end{align}
 Man transformiert nämlich zwei Delta-Peaks.
 
 \subsubsection{Einzelspalt und Steg}
-Für einen Einzelspalt mit einer Spaltbreite $b$ ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
+Für einen Einzelspalt mit einer Spaltbreite $b$ ergibt sich nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf nach \cite[S.452]{hecht}
 \begin{align}
 	I(\varepsilon)=I_0 \cdot \sinc^2(\varepsilon)\qquad \text{mit }\varepsilon= \frac{\pi b \sin \alpha}{\lambda}\,.
 \end{align}
@@ -249,7 +257,7 @@ $$ E_\text{Spalt} + E_\text{Steg} = 0 \,.$$
 Da man nur die Intensität, also das Quadrat des E-Feldes, misst ergibt sich als Fernfeld des Stegs der Länge $b$ die gleiche Verteilung wie bei einem Einzelspalt gleicher Spaltbreite.
 
 \subsubsection{Kreisblende}
-Für eine Kreisblende mit dem Durchmesser $D$ ergibt sich -- nach etwas komplexerer Rechnung -- nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
+Für eine Kreisblende mit dem Durchmesser $D$ ergibt sich -- nach etwas komplexerer Rechnung \cite[S.467ff.]{hecht} -- nach \eqref{eq:Fraunhofer2} dieser Intensitätsverlauf
 \begin{align}
 	I(\varepsilon)=I_0 \cdot \left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2 \qquad \text{mit }\varepsilon= \frac{\pi D \sin \alpha}{\lambda}\,.
 \end{align}
@@ -258,7 +266,7 @@ Das erste Minimum von $\left(\frac{J_1(\varepsilon)}{\varepsilon}\right)^2$ lieg
 Diese Zahl taucht auch beim Auflösungsvermögen bzw. Rayleigh-Kriterium auf.
 
 \subsubsection{Mehrfachspalt}
-Bei einem Mehrfachspalt, bei dem $N$ Spalte der Breite $b$ und dem Abstand $d$ beleuchtet werden, erhält man die Fernfeldverteilung aus dem Faltungssatz als Produkt aus Einzelpalteffekt und der Fouriertransformation von $N$ Delta-Peaks:
+Bei einem Mehrfachspalt, bei dem $N$ Spalte der Breite $b$ und dem Abstand $d$ beleuchtet werden, erhält man die Fernfeldverteilung aus dem Faltungssatz als Produkt aus Einzelpalteffekt und der Fouriertransformation von $N$ Delta-Peaks nach \cite[S.460f.]{hecht}:
 \begin{align}
 	I(\varepsilon)=I_0 \cdot \sinc^2\left(\frac{\pi\alpha b}{\lambda}\right) \cdot \left(\frac{\sin(N\varepsilon)}{\sin(\varepsilon)}\right)^2 \qquad \text{mit }\varepsilon= \frac{\pi d \sin \alpha}{\lambda}\,.
 \end{align}
@@ -359,7 +367,7 @@ Bei Objekten mit zwei zu bestimmenden Größen ist immer die größere für den 
 		(mittel) & $D$& $199 \pm 21$ & 200 & $1\%$ & 210 & $6\%$ \\
 		\hline		
 		Gitter & $a$ & $483  \pm 11$ & 285 & $70\%$ & 490 & $2\%$ \\
-		& $B$ & $194 \pm 25$ & 175 & $11\%$ & 210 & $14\%$ \\
+		& $B$ & $194 \pm 25$ & 175 & $11\%$ & 210 & $8\%$ \\
 		\hline
 	\end{tabular}
 	\caption{Aus den Geradensteigungen berechnete Objektgrößen verglichen mit den tatsächlichen Werten}
@@ -425,6 +433,13 @@ Dieser Wert ist etwa $5\%$ größer als der Literaturwert $\lambda=632.8\,$nm.
 \section{Diskussion}
 \label{sec:diskussion}
 \subsection{Objektgrößen}
+Vergleicht man die Messwerte mit den tatsächlichen Größen wie in Tabelle \ref{tab:objektgroessen} fallen einem sehr große Abweichungen wie zB.: beim Gitter von $70\%$ oder beim Doppelloch (mittel) von $33\%$ auf.
+Da dies eine Systematik zu haben scheint, werden die Werte auch noch mit den Werten der anderen Versuchsaufbauten verglichen.
+In allen Fällen ist der nächste Wert der eines Objekts vom mittleren Versuchsaufbau und die Fehler liegen unter $10\%$.
+Bei den Objekten Spalt, Steg und der Lochblende sowie der dem Doppelloch mit mittlerem Lochabstand wurden die Fehler jedoch zu klein abgeschätzt, da auch die besseren Werte nicht in den Fehlerintervallen liegen.
+Für die kleinen Strukturen wurde ein großer Fehler angenommen, da es nur zwei Messwerte gab.
+Alle drei Aufbauten haben ähnliche Gößen für diese Strukturen, sodass sich daraus nicht verlässlich sagen lässt, welches Objekt gemessen wurde.
+Dies kann man jedoch an den großen Strukturen gut ablesen.\\
 
 Somit nehmen wir an, dass die Sets der Beugungsobjekte vom mittleren Versuchsaufbau sich bei uns an der Wand befanden und umgekehrt.
 Man sollte nochmal nachmessen und alle Praktikanten darauf hinweisen, dass die drei Versuchsaufbauten nicht die gleichen Objektgrößen benutzen und man die Objekte nicht vertauschen sollte.
@@ -444,6 +459,7 @@ Da wir allerdings nicht wissen, wie und vor allem wie genau die Bestimmung des D
 
 \section{Anhang}
 \subsection{Messwerte}
+Abbildungen \ref{fig:spalt}-\ref{fig:gitter}
 \begin{figure}[!htb]
 	\centering
 	\input{spalt.tex}
@@ -494,7 +510,8 @@ Da wir allerdings nicht wissen, wie und vor allem wie genau die Bestimmung des D
 	\label{fig:gitter}
 \end{figure}
 
-\subsection{Extrema Tabelle}
+\subsection{Extrema-Tabellen}
+Tabellen \ref{tab:extrema1} und \ref{tab:extrema2}
 \begin{table}[!htb]
 	\centering
 	\begin{tabular}{|c||c|c|c|c|}
